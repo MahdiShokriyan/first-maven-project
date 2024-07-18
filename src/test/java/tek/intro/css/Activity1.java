@@ -4,26 +4,27 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
+
 public class Activity1 {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://retail.tekschool-students.com/");
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.findElement(By.cssSelector("#signinLink")).click();
-      //Thread.sleep(1000);
+
         driver.findElement(By.cssSelector("#email")).sendKeys("mahdi.mahdi@gmail.com");
         driver.findElement(By.cssSelector("#password")).sendKeys("Mahdi123!");
         driver.findElement(By.cssSelector("#loginBtn")).click();
-        Thread.sleep(1000);
+
         driver.findElement(By.cssSelector("#accountLink")).click();
 
-        String text = driver.findElement(By.cssSelector("#accountInformation >div" +
-                ":first-child > div > h1:last-child")).getText();
-       // Thread.sleep(1000);
+        String text = driver.findElement(By.cssSelector(".account__information-email")).getText();
+
         System.out.println("Your Email address is : " + text);
-        driver.quit();
+       driver.quit();
 
 
 
