@@ -12,7 +12,7 @@ public class FacebookActivity {
         WebDriver driver = new ChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        driver.get("Facebook.com");
+        driver.get("https://Facebook.com");
 
 
     }
